@@ -49,22 +49,28 @@ class Test2 implements  OwnerService{
 @Component
 public class DataLoader implements CommandLineRunner {
 
-    private final OwnerServiceMap ownerService;
-    private final VetServiceMap vetService;
-//    private Test1 test1;
+    private final OwnerService ownerService;
+    private final VetService vetService;
+    //private Test1 test1;
 
-    public DataLoader() {
-        ownerService= new OwnerServiceMap();
-//        if( instanceof OwnerService){
-//            System.out.println("true");
-//        }else{
-//            System.out.println("false");
-//        }
-//        System.out.println("inside constructor");
-        vetService= new VetServiceMap();
-        //printhirarchy();
-       // printhirarchy1();
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
+
+
+//    public DataLoader() {
+//        ownerService= new OwnerServiceMap();
+////        if( instanceof OwnerService){
+////            System.out.println("true");
+////        }else{
+////            System.out.println("false");
+////        }
+////        System.out.println("inside constructor");
+//        vetService= new VetServiceMap();
+//        //printhirarchy();
+//       // printhirarchy1();
+//    }
 
     public void printhirarchy(){
         Class c1=OwnerServiceMap.class;;
