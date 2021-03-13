@@ -13,38 +13,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Set;
 
-class Test2 implements  OwnerService{
 
-    @Override
-    public Owner findByLastName(String lastName) {
-        return null;
-    }
-
-    @Override
-    public Set<Owner> findAll() {
-        return null;
-    }
-
-    @Override
-    public Owner findById(Long aLong) {
-        return null;
-    }
-
-    @Override
-    public Owner save(Owner object) {
-        return null;
-    }
-
-    @Override
-    public void delete(Owner object) {
-
-    }
-
-    @Override
-    public void deleteById(Long aLong) {
-
-    }
-}
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -89,26 +58,7 @@ public class DataLoader implements CommandLineRunner {
         }
     }
 
-    public void printhirarchy1(){
-        Class c1= Test2.class;
-        System.out.println(c1.getName());
-        Class sc=c1.getSuperclass();
-        while(sc!=null){
-            System.out.println(sc.getName());
-            c1=sc;
-            sc=c1.getSuperclass();
-        }
-        Class[] interfaces=c1.getInterfaces();
-        System.out.println(interfaces);
-        System.out.println(interfaces.length);
-        Test2 t2=new Test2();
-        if(t2 instanceof  OwnerService){
-            System.out.println("present");
-        }
-        for(Class iface:interfaces){
-            System.out.println("interfaces is" + iface.getName());
-        }
-    }
+
     @Override
     public void run(String... args) throws Exception {
 
