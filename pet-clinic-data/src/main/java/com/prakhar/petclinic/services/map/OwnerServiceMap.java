@@ -3,12 +3,12 @@ package com.prakhar.petclinic.services.map;
 import com.prakhar.petclinic.model.Owner;
 import com.prakhar.petclinic.model.Pet;
 import com.prakhar.petclinic.services.OwnerService;
-import org.springframework.stereotype.Component;
+
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-@Component
+@Service
 public class OwnerServiceMap extends AbstractMapClass<Owner, Long> implements OwnerService {
     @Override
     public Set<Owner> findAll() {
@@ -41,8 +41,5 @@ public class OwnerServiceMap extends AbstractMapClass<Owner, Long> implements Ow
         return null;
     }
 
-    public OwnerServiceMap() {
-        super();
-        System.out.println("Inside ownership");
-    }
+
 }
