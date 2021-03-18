@@ -1,18 +1,14 @@
 package com.prakhar.petclinic.bootstrap;
 
 import com.prakhar.petclinic.model.Owner;
-import com.prakhar.petclinic.model.Person;
+import com.prakhar.petclinic.model.PetType;
 import com.prakhar.petclinic.model.Vet;
 import com.prakhar.petclinic.services.OwnerService;
+import com.prakhar.petclinic.services.PetTypeService;
 import com.prakhar.petclinic.services.VetService;
 import com.prakhar.petclinic.services.map.OwnerServiceMap;
-import com.prakhar.petclinic.services.map.VetServiceMap;
-import org.aspectj.weaver.ast.Test;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
-import java.util.Set;
-
 
 
 @Component
@@ -20,11 +16,12 @@ public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
-    //private Test1 test1;
+    private final PetTypeService petTypeService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
 
 
@@ -61,6 +58,14 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
+        PetType dog= new PetType();
+        dog.setName("Doggy");
+        PetType savedDogPetType = petTypeService.save(dog);
+
+        PetType cat= new PetType();
+        dog.setName("Meow");
+        PetType savedCatPetType = petTypeService.save(cat);
 
         Owner owner1= new Owner();
         owner1.setFirstName("Michael");
